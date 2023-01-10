@@ -1,4 +1,4 @@
-const { authJwt } = require("./authJwt");
-const { verifySignUp } = require("./verifySignUp");
+const { getImodel } = require("./getImodel");
+const { authUser } = require("./authUser");
 
-module.exports = { authJwt, verifySignUp };
+module.exports = { getImodel, authUser };
