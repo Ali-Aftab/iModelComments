@@ -37,8 +37,8 @@ const addComment = async (req, res) => {
     const comment = {};
     comment.date = new Date().toLocaleString();
     comment.text = req.body.text;
-    comment["comment-id"] = `${req.headers["user-id"]}-${Date.now()}`;
-    comment["user-id"] = req.headers["user-id"];
+    comment[commentID] = `${req.headers[userId]}-${Date.now()}`;
+    comment[userId] = req.headers[userId];
     oneModel.push(comment);
     comments[req.params.id] = oneModel;
     return res.json({ message: "Comment added Successfully!", comment });
