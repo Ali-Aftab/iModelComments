@@ -1,11 +1,11 @@
 {
-  "name": "bentley",
+  "name": "imodelcomments",
   "version": "1.0.0",
   "description": "Submission for Bentley",
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "start-dev": "webpack -w & nodemon index.js",
+    "start-dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "eslintConfig": {
@@ -30,7 +30,5 @@
     "react": "^17.0.1"
   },
   "devDependencies": {
-    "@webpack-cli/init": "^1.1.1",
-    "webpack": "^5.14.0"
   }
 }
