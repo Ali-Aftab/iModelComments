@@ -1,22 +1,34 @@
-# Boilerplate
+# Bentley iModel Comments API
 
-This project used Node.js, Express, PostgreSQL, and Sequelize.
+iModel API that implements comment funcitionality where users are able to add, retrieve, and delete comments related to an iModel.
 
 ## Get Started
 
 To run this application:
 
+1.  In your terminal type `git clone https://github.com/Ali-Aftab/iModelComments.git` to clone it to your computer.
+2.  Then type `cd iModelComments` to access the folder
+3.  To install the required modules type `npm i`
+4.  Type `npm run start-dev` in your terminal and you can use the API!
+
 ## API
 
 First, we recommend installing [Postman](https://www.postman.com/) to easily test out the API. Remember to add `localhost:8000` to the URL before typing in the API path. (`/api/auth/signup`=>`localhost:8000/api/signup`)
 
-### Sign Up/ Login Routes
+### Comments
 
-How to signup and login.
+How to add, retrieve, and remove comments.
+**NOTE: All Routes below require your user-id in the header!**
 
-- POST `/api/auth/signup` allows anyone to make an account <br/>
-  &nbsp;&nbsp;-Requires an email and password key inside the body <br/>
-  &nbsp;&nbsp;-Example {email: test@test.com, password: password1} <br/>
-- POST `/api/auth/signin` when logged in, the response will give the user an access token. The access token must be placed in the header (with "x-access-token" as the key and the given accessToken as the value)  
-  &nbsp;&nbsp;-Requires an email and password key inside the body. Also the x-access-token inside the header.<br/>
-  &nbsp;&nbsp;-The x-access-token lasts for 24 hours. <br/>
+- GET `/api/imodel/comments/:id` allows a user to retrieve comments from a selected iModel.<br/>
+  &nbsp;&nbsp;-Replace `:id` with the id of the iModel in the URL. <br/>
+
+- POST `/api/imodel/comments/:id` allows a user to add comments to a selected iModel.<br/>
+  &nbsp;&nbsp;-Replace `:id` with the id of the iModel in the URL. <br/>
+  &nbsp;&nbsp;-Requires the written text for the comment and assign it to the `text` key in the body. <br/>
+  &nbsp;&nbsp;-Example: {text: "This comment will inspire others to comment on this iModel!"} <br/>
+
+- DELETE `/api/imodel/comments/:id` allows a user to delete a selected comment to a particular iModel.<br/>
+  &nbsp;&nbsp;-Replace `:id` with the id of the iModel in the URL. <br/>
+  &nbsp;&nbsp;-Requires the comment-id that you would like to delete and assign it to the `comment-id` key in the body. <br/>
+  &nbsp;&nbsp;-Example: {comment-id: "REPLACE COMMENT-ID HERE"} <br/>
