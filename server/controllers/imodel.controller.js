@@ -1,5 +1,8 @@
 const comments = {};
 
+const userId = "user-id";
+const commentID = "comment-id";
+
 const getComments = async (req, res) => {
   try {
     const oneModel = comments[req.params.id];
@@ -45,4 +48,49 @@ const addComment = async (req, res) => {
   }
 };
 
-module.exports = { getComments, addComment };
+const deleteComment = async (req, res) => {
+  try {
+    if (!req.params.id) {
+      return res.json({ message: "require an id for the params!" });
+    }
+    if (!req.body[commentID]) {
+      return res.json({ message: "require a comment-id from the params!" });
+    }
+    let oneModel = comments[req.params.id];
+    if (!oneModel) {
+      return res
+        .status(404)
+        .json({ message: "No comments were found for this iModel!" });
+    }
+    let commentInd;
+    for (let i = 0; i < oneModel.length; i++) {
+      const oneComment = oneModel[i];
+      if (oneComment[commentID] === req.body[commentID]) {
+        if (oneComment[userId] !== req.headers[userId]) {
+          return res
+            .status(403)
+            .json({ message: "User cannot delete other people's comments!" });
+        }
+        commentInd = i;
+        break;
+      }
+    }
+    if (commentInd === undefined) {
+      return res
+        .status(404)
+        .json({ message: "No comment matched the comment-id given!" });
+    }
+    const deletedComment = oneModel.splice(commentInd);
+    console.log(deletedComment);
+    console.log(comments);
+    return res.json({
+      message: "Comment successfully deleted!",
+      deletedComment,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { getComments, addComment, deleteComment };
