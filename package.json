@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate",
+  "name": "bentley",
   "version": "1.0.0",
-  "description": "Boilerplate for future repo's",
+  "description": "Submission for Bentley",
   "main": "index.js",
   "scripts": {
     "start": "node server",
