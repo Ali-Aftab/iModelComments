@@ -10,4 +10,5 @@ module.exports = function (app) {
   });
 
   app.get("/api/imodel/comments/:id", authUser, controller.getComments);
+  app.post("/api/imodel/comments/:id", authUser, controller.addComment);
 };
