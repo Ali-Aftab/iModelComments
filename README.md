@@ -6,17 +6,10 @@ iModel API that implements comment funcitionality where users are able to add, r
 
 To run this application:
 
-If you have the project saved locally:
-
-1. In your terminal go the parent directory where this project is saved.
-
-If you do not have the project saved locally:
-
-1.  In your terminal type `git clone https://github.com/Ali-Aftab/iModelComments.git` to clone it to your computer.
-
-2.  Then type `cd iModelComments` to access the folder
-3.  To install the required modules type `npm i`
-4.  Type `npm run start-dev` in your terminal and you can use the API!
+1. If you do not have the project saved locally then in your terminal type `git clone https://github.com/Ali-Aftab/iModelComments.git` to clone it to your computer. If you have the project saved locally then in your terminal go the parent directory where this project is saved.
+2. Then type `cd iModelComments` to access the folder
+3. To install the required modules type `npm i`
+4. Type `npm run start-dev` in your terminal and you can use the API!
 
 ## API
 
